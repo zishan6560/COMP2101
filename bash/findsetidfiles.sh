@@ -11,10 +11,16 @@
 
 echo "Setuid files:"
 echo "============="
-find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 3
+find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 3 | head -n 3
 echo ""
 echo "setgid files:"
 echo "============="
-find / -type f -executable -perm -2000 -ls 2>/dev/null | sort -k 3
+find / -type f -executable -perm -2000 -ls 2>/dev/null | sort -k 3 | head -n 3
+
 echo ""
-du -ah | find / -type f -ls 2>/dev/null | sort -rh | head -n 10
+echo ""
+echo "Diplaying Files with attributes"
+echo ""
+
+find / -type f | ls -lsh -S | awk '{if(NR>1)print $1, $4, $5, $10}' | head -n 10
+
