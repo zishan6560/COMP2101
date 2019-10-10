@@ -1,4 +1,4 @@
- $#!/bin/bash
+ #!/bin/bash
 #
 # this script rolls a pair of six-sided dice
 #
@@ -12,7 +12,7 @@
 
 # roll the dice and display the result
 echo "
-Rolling a pair of six-sided dece...
+Rolling a pair of six-sided dice...
 $(( RANDOM % 6 + 1)), $(( RANDOM % 6 + 1 )) rolled
 "
 echo " "

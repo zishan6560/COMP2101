@@ -23,6 +23,8 @@ fpdividend=$(awk "BEGIN{printf \"%.2f\", $firstnum/$secondnum}")
 
 cat <<EOF
 $firstnum plus $secondnum is $sum
+$firstnum minus $secondnum is $sub
+$firstnum multiply $secondnum is $mul
 $firstnum divided by $secondnum gives $dividend with a remainder of $remainder
   - More precisely, it is $fpdividend
 $firstnum raised to the power of the $secondnum gives $power

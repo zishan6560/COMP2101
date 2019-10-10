@@ -19,9 +19,7 @@ hostname=$(hostname)
 ###############
 # Main        #
 ###############
-cat <<EOF
 
-Welcome to planet $hostname, "$title $myname!"
-today is $(date)
-
-EOF
+d_time=$(date)
+result="Welcome to planet $hostname, $title $myname! this is $d_time on weekday"
+cowsay $result
