@@ -35,12 +35,10 @@
 
 hostn=$(hostname)
 
-lanadd_sec=$(ip a |awk '/: e/{gsub(/:/,"");print $2}')
-lanadd=$(ip a s $lanadd_sec | awk '/inet /{gsub(/\/.*/,"");print $2}')
+lanAdd_Sec=$(ip a |awk '/: e/{gsub(/:/,"");print $2}')
+lanAdd=$(ip a s $lanAdd_Sec | awk '/inet /{gsub(/\/.*/,"");print $2}')
 
-lanhost2=$(ip a |awk '/: e/{gsub(/:/,"");print $2}')
-lanhost1=$(ip a s $lanhost2)
-lanhost=$(getent hosts $lanhost1 | awk 'NR==3{print$2}')
+lanhost=$(getent hosts $lanAdd | awk '{print$2}')
 
 ext_ip=$(curl -s icanhazip.com)
 
@@ -50,7 +48,7 @@ ext_name=$(getent hosts $ext_name_sub | awk '{print $2}')
 
 cat <<EOF
 Hostname      : $hostn
-LAN Address   : $lanadd
+LAN Address   : $lanAdd
 LAN Hostname  : $lanhost
 External IP   : $ext_ip
 External Name : $ext_name

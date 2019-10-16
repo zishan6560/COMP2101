@@ -13,13 +13,12 @@
 # Variables   #
 ###############
 title="Overlord"
-myname="BHAUUUU"
+#USER="BHAUUUU"
 hostname=$(hostname)
 
 ###############
 # Main        #
 ###############
 
-d_time=$(date)
-result="Welcome to planet $hostname, $title $myname! this is $d_time on weekday"
-cowsay $result
+
+cowsay Welcome to planet $hostname, "$title $USER!" today is $(date +"%I:%M %p") on $(date +"%A")
